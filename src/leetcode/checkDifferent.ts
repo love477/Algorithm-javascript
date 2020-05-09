@@ -3,7 +3,7 @@ export function checkDifferent(iniString: string) {
     return false;
   }
   for (let index = 0; index < iniString.length; index++) {
-    const regexp = new RegExp('iniString.charAt(index)', 'g');
+    const regexp = new RegExp(iniString.charAt(index), 'g');
     const result = iniString.match(regexp);
     if (result && result.length > 1) {
       return false
@@ -12,4 +12,4 @@ export function checkDifferent(iniString: string) {
   return true;
 }
 
-console.log('result: ', checkDifferent('abcda'));
+console.log('result: ', checkDifferent('bcda'));
