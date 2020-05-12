@@ -1,7 +1,7 @@
 {
   "name": "algorithm-javascript",
   "version": "1.0.0",
-  "description": "",
+  "description": "Algorithm examples implement by JavaScript",
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/dingyuanwu/Algorithm-javascript.git"
   },
-  "author": "",
+  "author": "dingyuan.wdy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dingyuanwu/Algorithm-javascript/issues"
