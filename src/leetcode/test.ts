@@ -1,6 +1,6 @@
-import isHappy from './HappyNumber';
+import repeatedSubstringPattern from './repeatedSubStringPattern';
 export const test = () => {
-    const result = isHappy(199);
+    const result = repeatedSubstringPattern('abcabcabcabc');
     console.log('result: ', result);
 }
 test();
