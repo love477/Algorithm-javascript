@@ -1,3 +1,3 @@
-export const test = () => {
+export default () => {
 
-}
+};
