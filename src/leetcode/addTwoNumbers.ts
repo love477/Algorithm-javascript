@@ -10,12 +10,12 @@
  * 原因：342 + 465 = 807
  * 
  */
-function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+function addTwoNumbers(l1: ListNode, l2: ListNode): ListNode | null {
   const result = new ListNode();
 
   let carryOver = 0;
-  let nextL1 = l1;
-  let nextL2 = l2;
+  let nextL1: ListNode | null = l1;
+  let nextL2: ListNode | null = l2;
   let cur = result;
 
   while (nextL1 || nextL2 || carryOver) {
@@ -38,22 +38,6 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   return result.next;
 };
 
-export const printListNode = (l: ListNode): void => {
-  if (!l) {
-    console.log('nothing input');
-  }
-  let nextL = l;
-  let result = '';
-  while (nextL) {
-    if (nextL.next) {
-      result += `${nextL.val} -> `;
-    } else {
-      result += `${nextL.val}`;
-    }
-    nextL = nextL.next;
-  }
-  console.log(result);
-}
 
 export class ListNode {  
   val: number
@@ -61,6 +45,12 @@ export class ListNode {
   constructor(val?: number, next?: ListNode | null) {
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
+  }
+}
+
+function printListNode(l: ListNode | null) {
+  while (l && l.next) {
+    console.log(l.val)
   }
 }
 
