@@ -1,0 +1,6 @@
+{
+    "debug.node.autoAttach": "on",
+    "debug.allowBreakpointsEverywhere": true,
+    "eslint.validate": ["typescript"],
+    "typescript.tsdk": "node_modules/typescript/lib"
+  }

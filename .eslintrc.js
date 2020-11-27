@@ -1,23 +1,28 @@
 module.exports = {
-    "env": {
-        "es6": true,
-        "node": true
+    env: {
+      es6: true,
+      node: true,
     },
-    "extends": "airbnb-base",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+    extends: [
+      'airbnb-base',
+    ],
+    globals: {
+      Atomics: 'readonly',
+      SharedArrayBuffer: 'readonly',
     },
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+      ecmaVersion: 2018,
+      sourceType: 'module',
     },
-    "rules": {
-        "array-callback-return": "off",
-        "consistent-return": "off",
-        "no-console": "off",
-        "no-restricted-syntax": "off",
-        "no-plusplus": "off",
-        "no-continue": "off"
-    }
-};
+    plugins: [
+      '@typescript-eslint',
+    ],
+    rules: {
+      'import/extensions': 0,
+      'import/no-unresolved': 0,
+      'import/prefer-default-export': 0,
+      'class-methods-use-this': 0,
+    },
+  };
+  
