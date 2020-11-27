@@ -24,3 +24,20 @@ export function selectionSort(a: number[]) {
     }
   }
 }
+
+export function quickSort(arr: number[]): number[] {
+  if (arr.length < 2) {
+    return arr;
+  }
+  const tmp = arr[Math.floor(arr.length / 2)];
+  const less = [];
+  const greater = [];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < tmp) {
+      less.push(arr[i]);
+    } else {
+      greater.push(arr[i]);
+    }
+  }
+  return quickSort(less).concat([tmp]).concat(quickSort(greater));
+}
