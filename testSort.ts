@@ -1,4 +1,4 @@
-import { generateNumberArr, selectionSort, quickSort } from './src/sort';
+import { generateNumberArr, shellSort } from './src/sort';
 
 /**
  * sort测试环境：  
@@ -15,22 +15,31 @@ import { generateNumberArr, selectionSort, quickSort } from './src/sort';
  * selectionSort sort 1000 elements cost 0s 2313940 ns  
  * selectionSort sort 10000 elements cost 0s 124066985 ns  
  * selectionSort sort 100000 elements cost 13s 504086102 ns  
- * selectionSort sort 1000000 elements cost 1830s 451392890 ns  
+ * selectionSort sort 1000000 elements cost 1830s 451392890 ns
+ *   
  * js中数组的sort方法的排序测试：  
  * selectionSort sort 1000000 elements cost 0s 656507961 ns
+ * 
  * quickSort
  * quickSort sort 1000000 elements cost 0s 526994561 ns
+ * 
+ * insertSort
+ * insertSort sort 100000 elements cost 2s 756956728 ns
+ * insertSort sort 1000000 elements cost 294s 470174048 ns
+ * 
+ * shellSort
+ * shellSort sort 100000 elements cost 9s 476744528 ns
  */
-const testSelectionSort = (n: number) => {
+const testSort = (n: number) => {
   const a = generateNumberArr(n);
   const startTime = process.hrtime();
-  quickSort(a);
+  shellSort(a);
   const costTime = process.hrtime(startTime);
   console.log(`selectionSort sort ${a.length} elements cost ${costTime[0]}s ${costTime[1]} ns`);
 };
-// testSelectionSort(10);
-// testSelectionSort(1000);
-// testSelectionSort(10000);
-// testSelectionSort(100000);
-testSelectionSort(1000000);
+// testSort(10);
+// testSort(1000);
+testSort(10000);
+testSort(100000);
+// testSort(1000000);
 

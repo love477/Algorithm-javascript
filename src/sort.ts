@@ -25,6 +25,42 @@ export function selectionSort(a: number[]) {
   }
 }
 
+export function insertSort(a: number[]) {
+  if (!a || a.length < 2) {
+    return;
+  }
+  for (let i = 0; i < a.length; i ++) {
+    for (let j = i; j > 0; j--) {
+      if (a[j] < a[j - 1]) {
+        const temp = a[j];
+        a[j] = a[j - 1];
+        a[j - 1] = temp;
+      }
+    }
+  }
+}
+
+export function shellSort(a: number[]) {
+  const N = a.length;
+  let h = 1;
+  while (h < Math.floor(N/3)) {
+    h = 3*h + 1;
+  }
+  while (h >= 1) {
+    for (let i = 0; i < N; i++) {
+      for (let j = i; j >= h; j-=h) {
+        if (a[j] < a[j-h]) {
+          const temp = a[j];
+          a[j] = a[j-h];
+          a[j-h] = temp;
+        }
+      }
+    }
+    console.log('h: ', h)
+    h = Math.floor(h/3);
+  }
+}
+
 export function quickSort(arr: number[]): number[] {
   if (arr.length < 2) {
     return arr;
