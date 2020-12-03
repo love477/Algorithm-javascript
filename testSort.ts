@@ -1,4 +1,4 @@
-import { generateNumberArr, shellSort } from './src/sort';
+import { generateNumberArr, quickSort1 } from './src/sort';
 
 /**
  * sort测试环境：  
@@ -22,6 +22,7 @@ import { generateNumberArr, shellSort } from './src/sort';
  * 
  * quickSort
  * quickSort sort 1000000 elements cost 0s 526994561 ns
+ * quickSort1 sort 1000000 elements cost 0s 117012931 ns
  * 
  * insertSort
  * insertSort sort 100000 elements cost 2s 756956728 ns
@@ -32,14 +33,15 @@ import { generateNumberArr, shellSort } from './src/sort';
  */
 const testSort = (n: number) => {
   const a = generateNumberArr(n);
+  console.log('a: ', a);
   const startTime = process.hrtime();
-  shellSort(a);
+  quickSort1(a, 0, a.length);
   const costTime = process.hrtime(startTime);
   console.log(`selectionSort sort ${a.length} elements cost ${costTime[0]}s ${costTime[1]} ns`);
 };
-// testSort(10);
+// testSort(5);
 // testSort(1000);
-testSort(10000);
-testSort(100000);
-// testSort(1000000);
+// testSort(10000);
+// testSort(100000);
+testSort(1000000);
 

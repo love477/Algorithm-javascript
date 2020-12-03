@@ -77,3 +77,21 @@ export function quickSort(arr: number[]): number[] {
   }
   return quickSort(less).concat([tmp]).concat(quickSort(greater));
 }
+
+export function quickSort1(arr: number[], start: number, end: number) {
+  if (start >= end) return;
+  const temp = arr[end-1];
+  let i = start;
+  for (let j=start; j<end-1; j++){
+    if(temp > arr[j]) {
+      const v = arr[j];
+      arr[j] = arr[i];
+      arr[i] = v;
+      i++;
+    }
+  }
+  arr[end-1] = arr[i];
+  arr[i] = temp;
+  quickSort1(arr, start, i);
+  quickSort1(arr, i+1, end);
+}
