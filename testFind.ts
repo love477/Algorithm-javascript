@@ -1,5 +1,5 @@
-import { generateNumberArr } from './src/sort';
-import { twoNumberSum, twoNumberSum2, twoNumberSum3 } from './src/find';
+import { generateNumberArr } from './src/algorthms/sort';
+import { twoNumberSum, twoNumberSum2, twoNumberSum3 } from './src/algorthms/find';
 
 /**
  * sort测试环境：  

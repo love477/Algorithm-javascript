@@ -1,4 +1,4 @@
-import { generateNumberArr, quickSort1 } from './src/sort';
+import { generateNumberArr, quickSort1 } from './src/algorthms/sort';
 
 /**
  * sort测试环境：  
