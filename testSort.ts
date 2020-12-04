@@ -33,7 +33,6 @@ import { generateNumberArr, quickSort1 } from './src/sort';
  */
 const testSort = (n: number) => {
   const a = generateNumberArr(n);
-  console.log('a: ', a);
   const startTime = process.hrtime();
   quickSort1(a, 0, a.length);
   const costTime = process.hrtime(startTime);
