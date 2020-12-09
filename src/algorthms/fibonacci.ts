@@ -52,23 +52,29 @@ export const fibonacciMemoized = (n: number): number => {
  * 内存: 16 GB 2667 MHz DDR4  
  * 显卡: Intel UHD Graphics 630 1536 MB   
  * 测试结果：  
- * fibonacci(100) cost 0s 946281 ns
+ * fibonacci(100) cost 0s 62456 ns
+ * fibonacci(1000) cost 0s 139207 ns
  */
 export const fibonacciBottom = (n: number): number => {
   if (n < 0) throw new Error('n must >= 0');
-  fibonacciMap.set(0, 0);
-  fibonacciMap.set(1, 1);
-  for (let i=2; i<=n; i++) {
-    let r: number = 0;
-    for (let j=2; j<=i; j++) {
-      if (fibonacciMap.get(j-1) === undefined || fibonacciMap.get(j-2) === undefined) {
-        throw new Error(`err: ${j-1}, ${j-2}`);
-      }
-      r = (fibonacciMap.get(j-1) as number) + (fibonacciMap.get(j-2) as number);
-    }
-    fibonacciMap.set(i, r);
+  if (n < 2) return 1;
+  // fibonacci(1000) cost 0s 139207 ns
+  // const fibonacciArr = [];
+  // fibonacciArr.push(1);
+  // fibonacciArr.push(1);
+  // for (let i=2; i<n; i++) {
+  //   fibonacciArr.push(fibonacciArr[i-1] + fibonacciArr[i-2]);
+  // }
+  // return fibonacciArr[n-1];
+
+  // fibonacci(1000) cost 0s 63860 ns
+  let pre = 1, cur = 1;
+  for (let i=2; i<n; i++) {
+    let next = pre + cur;
+    pre = cur;
+    cur = next;
   }
-  return fibonacciMap.get(n) || -1;
+  return cur;
 }
 
 function test(n: number) {
@@ -78,4 +84,4 @@ function test(n: number) {
   console.log(`fibonacci(${n}) = ${result} cost ${costTime[0]}s ${costTime[1]} ns`);
 }
 
-test(10000)
+test(1000);
