@@ -54,3 +54,18 @@ export const twoNumberSum3 = (arr: number[], sum: number): ITwoNumberSum[] => {
   }
   return result;
 }
+
+export const binarySearch = (sets: number[], target: number, start: number, end: number): number => {
+  if (start >= end) {
+    return -1
+  }
+  console.log(target, start, end);
+  const middle = Math.floor((end - start)/2 + start);
+  if (sets[middle] === target) {
+    return middle;
+  }
+  if (sets[middle] > target) {
+    return binarySearch(sets, target, start, middle);
+  }
+  return binarySearch(sets, target, middle+1, end);
+}
