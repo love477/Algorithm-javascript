@@ -49,6 +49,6 @@ function testBinarySearch() {
   const res = binarySearch(sets, 7890, 0, sets.length-1);
   const costTime = process.hrtime(startTime);
   console.log(`find binarySearch in ${sets.length} elements cost ${costTime[0]}s ${costTime[1]} ns`);
-  console.log('res: ', res);
+  console.log('res: ', res, sets[res]);
 }
 testBinarySearch();

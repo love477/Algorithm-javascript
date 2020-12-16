@@ -21,7 +21,24 @@
  * 
  */
 function maxProfit(prices: number[]): number {
-    return 0;
+    const rightMax = new Map();
+    for(let i=prices.length-1; i>=0; i--) {
+        if (!rightMax.get(i+1)) {
+            rightMax.set(i, prices[i]);
+        } else {
+            rightMax.set(i, prices[i] > rightMax.get(i+1) ? prices[i] : rightMax.get(i+1));
+        }
+    }
+    let max = 0;
+    prices.forEach((v, index)=>{
+        console.log(v, index, rightMax.get(index), max);
+        if(rightMax.get(index) - v > max) {
+            max = rightMax.get(index) - v;
+        }
+    })
+    return max;
 };
 
 export default maxProfit;
+
+console.log(maxProfit([1, 2]));
