@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-function myAtoi(s: string): number {
+export function myAtoi(s: string): number {
   const nums: string[] = [];
   let startWithZero = false;
   let hasSign = false;
