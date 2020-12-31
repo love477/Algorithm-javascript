@@ -1,7 +1,11 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-console */
-export function plusOne(digits: number[]): number[] {
+/*
+ * @lc app=leetcode.cn id=66 lang=typescript
+ *
+ * [66] 加一
+ */
+
+// @lc code=start
+function plusOne(digits: number[]): number[] {
   let temp = 0;
   const MAX = 10;
   const resultArr: number[] = [];
@@ -28,5 +32,4 @@ export function plusOne(digits: number[]): number[] {
   }
   return resultArr;
 }
-
-console.log(plusOne([8, 9, 9, 9]));
+// @lc code=end
