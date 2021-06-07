@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 const fibonacciMap = new Map<number, number>();
 /**
  * 斐波那契数列
@@ -16,8 +17,8 @@ export const fibonacci = (n: number): number => {
   if (n < 0) throw new Error('n must >= 0');
   if (n === 0) return 0;
   if (n === 1) return 1;
-  return fibonacci(n-1) + fibonacci(n-2);
-}
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
 
 /**
  * 带记忆的斐波那契数列(Fibonacci Memoized)
@@ -38,10 +39,10 @@ export const fibonacciMemoized = (n: number): number => {
   if (res) {
     return res;
   }
-  const r = fibonacciMemoized(n-1) + fibonacciMemoized(n-2);
+  const r = fibonacciMemoized(n - 1) + fibonacciMemoized(n - 2);
   fibonacciMap.set(n, r);
   return r;
-}
+};
 
 /**
  * 自底向上斐波那契数列
@@ -68,19 +69,22 @@ export const fibonacciBottom = (n: number): number => {
   // return fibonacciArr[n-1];
 
   // fibonacci(1000) cost 0s 63860 ns
-  let pre = 1, cur = 1;
-  for (let i=2; i<n; i++) {
-    let next = pre + cur;
+  let pre = 1; 
+  let cur = 1;
+  // eslint-disable-next-line no-plusplus
+  for (let i = 2; i < n; i++) {
+    const next = pre + cur;
     pre = cur;
     cur = next;
   }
   return cur;
-}
+};
 
 function test(n: number) {
   const startTime = process.hrtime();
   const result = fibonacciBottom(n);
   const costTime = process.hrtime(startTime);
+  // eslint-disable-next-line no-console
   console.log(`fibonacci(${n}) = ${result} cost ${costTime[0]}s ${costTime[1]} ns`);
 }
 

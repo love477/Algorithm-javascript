@@ -1,6 +1,8 @@
 class Node {
   pre: Node;
+
   next: Node ;
+
   data: Object;
 
   constructor(data: object) {
@@ -36,7 +38,7 @@ class NodeList {
     if (!node) { // 链表为空
       return;
     }
-    while(node.next) {
+    while (node.next) {
       if (node.data === n.data) {
         break;
       }
@@ -54,7 +56,7 @@ class NodeList {
       node.next.pre = node.pre;
     } else {
       // 删除的是尾结点
-      node.pre?.next
+      node.pre?.next;
     }
   }
 }
@@ -73,6 +75,7 @@ export class LRUCache {
   private maxCap: number;
 
   private cache: Map<string, Object>;
+
   private list: IListNode[];
 
   constructor(maxCap: number) {
