@@ -30,16 +30,3 @@ function isValid(s: string): boolean {
   }
   return stack.length === 0;
 };
-// @lc code=end
-
-// 大括号
-
-// braces;
-
-// 方括号
-
-// brackets;
-
-// 圆括号
-
-// parentheses;
